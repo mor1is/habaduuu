@@ -1,0 +1,196 @@
+/* Background and base font setup */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(120deg, #9bd9f5, #ffb0b0, #dabfff);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  color: #000;
+  overflow-x: hidden;
+}
+
+
+@keyframes fadeInBody {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.6); /* transparency added */
+  backdrop-filter: blur(10px); /* blur effect behind */
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  z-index: 100;
+  transition: background 0.3s ease;
+}
+
+
+/* Navigation bar with underline highlight */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  padding: 30px 0;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+nav a {
+  position: relative;
+  text-decoration: none;
+  color: black;
+  padding-bottom: 5px;
+  transition: color 0.3s ease;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+nav a:hover::after,
+nav a.active::after {
+  background-color: #000;
+}
+
+/* Main content styles */
+.container {
+  text-align: center;
+  margin-top: 20px;
+  animation: fadeInUp 1.8s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.celebrate {
+  font-size: 0.9rem;
+  letter-spacing: 3px;
+}
+
+.happy {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 80px;
+  letter-spacing: 3px;
+  margin: 0;
+ animation: fadeInUp 1.8s ease;
+}
+
+.birthday {
+ font-family: 'Cinzel Decorative', sans-serif;
+  font-size: 80px;
+  margin: 0;
+  letter-spacing: 4px;
+  animation: fadeInUp 1.8s ease;
+}
+
+.date-time {
+  font-family: 'Cinzel Decorative', sans-serif;
+  font-size: 1.5rem;
+  margin: 20px 0;
+  animation: zoomIn 1.8s ease;
+}
+
+.details {
+  font-size: 0.9rem;
+  letter-spacing: 3px;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+#music-control {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  cursor: pointer;
+}
+#music-icon {
+  width: 50px;
+  height: 50px;
+  transition: transform 0.3s ease;
+}
+.spinning {
+  animation: spin 3s linear infinite;
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+
+/* Background decoration image from uploaded file */
+.background-deco {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('1fd431d9-e712-4321-93e3-e448ace8882a.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-blend-mode: overlay;
+  opacity: 0.5;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+/* Optional: sparkle/star styles around HAPPY */
+.sparkle {
+  font-size: 20px;
+  color: white;
+  animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: 0.3; transform: scale(1); }
+  to   { opacity: 1; transform: scale(1.2); }
+}
